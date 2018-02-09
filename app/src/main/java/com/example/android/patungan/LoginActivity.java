@@ -86,13 +86,15 @@ public class LoginActivity extends AppCompatActivity {
                     db.addUser(result.getEmail().toString(), result.getNama().toString(),
                             result.getAlamat().toString(), result.getTelepon().toString(), result.getNamaBank().toString(),
                             result.getAnBank().toString(), result.getNoRekening().toString(), result.getKtp().toString());
+
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(intent);
                 }else{
                     Toast.makeText(LoginActivity.this, "Username atau Password Salah", Toast.LENGTH_SHORT).show();
                 }
                 progressDialog.hide();
 
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
+
             }
 
             @Override
