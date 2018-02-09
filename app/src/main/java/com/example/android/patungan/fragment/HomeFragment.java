@@ -28,6 +28,7 @@ public class HomeFragment extends Fragment {
     RecyclerView rvMain;
     List<Proyek> proyekList;
     MainAdapter adapter;
+
     public HomeFragment() {
         // Required empty public constructor
     }

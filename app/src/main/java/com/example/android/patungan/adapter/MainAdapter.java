@@ -1,10 +1,12 @@
 package com.example.android.patungan.adapter;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.android.patungan.DetailActivity;
 import com.example.android.patungan.R;
 import com.example.android.patungan.model.Proyek;
 import com.example.android.patungan.viewholder.MainViewHolder;
@@ -40,6 +42,13 @@ public class MainAdapter extends RecyclerView.Adapter<MainViewHolder> {
         holder.tvMainInsertDate.setText(data.getInsertDate());
         holder.tvMainProfit.setText(data.getProfit());
         holder.tvMainPeriode.setText(data.getPeriode());
+        holder.tvMainDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), DetailActivity.class);
+                view.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override

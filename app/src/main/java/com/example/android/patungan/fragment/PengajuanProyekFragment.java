@@ -3,17 +3,32 @@ package com.example.android.patungan.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.android.patungan.R;
+import com.example.android.patungan.adapter.MainAdapter;
+import com.example.android.patungan.model.Proyek;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class PengajuanProyekFragment extends Fragment {
 
+    @BindView(R.id.rv_pengajuan)
+    RecyclerView rvPengajuan;
+
+    List<Proyek> proyekList;
+    MainAdapter adapter;
 
     public PengajuanProyekFragment() {
         // Required empty public constructor
@@ -23,8 +38,21 @@ public class PengajuanProyekFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_pengajuan_proyek, container, false);
+        ButterKnife.bind(this, view);
+
+        proyekList = new ArrayList<>();
+        proyekList.add(new Proyek("Reseller Kayu Manis", "Fiqih Fatwa", "09-02-2018", "10%", "5 bulan"));
+        proyekList.add(new Proyek("Reseller Biji Kopi", "M. Sakta Akbari", "09-02-2018", "10%", "5 bulan"));
+        adapter = new MainAdapter(proyekList);
+
+        rvPengajuan.setAdapter(adapter);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext(), LinearLayoutManager.VERTICAL, false);
+        rvPengajuan.setLayoutManager(layoutManager);
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pengajuan_proyek, container, false);
+        return view;
     }
 
 }
