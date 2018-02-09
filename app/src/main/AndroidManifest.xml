@@ -25,7 +25,10 @@
         <activity
             android:name=".RegisterActivity"
             android:theme="@style/AppTheme.TextInputLayout.Register" />
-        <activity android:name=".DetailActivity"></activity>
+        <activity android:name=".DetailActivity" />
+        <activity android:name=".DetailPengajuanActivity" />
+        <activity android:name=".DetailProyekSayaActivity" />
+        <activity android:name=".TambahProyekActivity"></activity>
     </application>
 
 </manifest>

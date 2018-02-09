@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.android.patungan.DetailActivity;
+import com.example.android.patungan.DetailPengajuanActivity;
 import com.example.android.patungan.R;
 import com.example.android.patungan.model.Proyek;
 import com.example.android.patungan.viewholder.PengajuanViewHolder;
@@ -37,14 +37,14 @@ public class PengajuanAdapter extends RecyclerView.Adapter<PengajuanViewHolder> 
         Proyek data = listPengajuan.get(position);
 
         holder.tvPengajuanJudul.setText(data.getJudul());
-        holder.tvPengajuanStatus.setText(data.getOleh());
+        holder.tvPengajuanStatus.setText(String.valueOf(data.getStatus()));
         holder.tvPengajuanInsertDate.setText(data.getInsertDate());
         holder.tvPengajuanProfit.setText(data.getProfit());
         holder.tvPengajuanPeriode.setText(data.getPeriode());
         holder.tvPengajuanDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), DetailActivity.class);
+                Intent intent = new Intent(view.getContext(), DetailPengajuanActivity.class);
                 view.getContext().startActivity(intent);
             }
         });

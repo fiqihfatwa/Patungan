@@ -10,6 +10,8 @@ public class Proyek {
     private String insertDate;
     private String profit;
     private String periode;
+    private String statusPembayaran;
+    private int status;
 
     public Proyek(String mJudul, String mOleh, String mInsertDate, String mProfit, String mPeriode) {
         judul = mJudul;
@@ -17,6 +19,21 @@ public class Proyek {
         insertDate = mInsertDate;
         profit = mProfit;
         periode = mPeriode;
+    }
+
+    public Proyek(String mJudul, int mStatus, String mInsertDate, String mProfit, String mPeriode) {
+        judul = mJudul;
+        status = mStatus;
+        insertDate = mInsertDate;
+        profit = mProfit;
+        periode = mPeriode;
+    }
+
+    public Proyek(String mJudul, String mDate, String mStatus) {
+        judul = mJudul;
+        insertDate = mDate;
+        statusPembayaran = mStatus;
+
     }
 
     public String getJudul() {
@@ -57,5 +74,21 @@ public class Proyek {
 
     public void setPeriode(String periode) {
         this.periode = periode;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public String getStatusPembayaran() {
+        return statusPembayaran;
+    }
+
+    public void setStatusPembayaran(String statusPembayaran) {
+        this.statusPembayaran = statusPembayaran;
     }
 }

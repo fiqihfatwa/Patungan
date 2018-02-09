@@ -15,8 +15,8 @@ import android.view.MenuItem;
 
 import com.example.android.patungan.fragment.HomeFragment;
 import com.example.android.patungan.fragment.PengajuanProyekFragment;
+import com.example.android.patungan.fragment.ProfileFragment;
 import com.example.android.patungan.fragment.ProyekSayaFragment;
-import com.example.android.patungan.fragment.TimelineFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -92,8 +92,8 @@ public class MainActivity extends AppCompatActivity
             fragmentClass = PengajuanProyekFragment.class;
         } else if (id == R.id.nav_proyek_saya) {
             fragmentClass = ProyekSayaFragment.class;
-        } else if (id == R.id.nav_timeline) {
-            fragmentClass = TimelineFragment.class;
+        } else if (id == R.id.nav_profile) {
+            fragmentClass = ProfileFragment.class;
         } else if (id == R.id.nav_logout) {
 
         }

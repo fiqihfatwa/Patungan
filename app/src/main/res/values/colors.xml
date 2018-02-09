@@ -8,4 +8,8 @@
     <color name="black">#000000</color>
 
     <color name="colorLine">#E0E0E0</color>
+
+    <color name="colorMenungguPembayaran">#e74c3c</color>
+    <color name="colorProyekSelesai">#3498db</color>
+    <color name="colorPembayaranBerhasil">#2ecc71</color>
 </resources>
