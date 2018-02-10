@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
 import com.example.android.patungan.DetailPengajuanActivity;
 import com.example.android.patungan.R;
 import com.example.android.patungan.model.Proyek;
@@ -24,10 +25,10 @@ public class PengajuanAdapter extends RecyclerView.Adapter<PengajuanViewHolder> 
     public PengajuanAdapter(List<Proyek> mListPengajuan) {
         listPengajuan = mListPengajuan;
     }
-
+    private View view;
     @Override
     public PengajuanViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_pengajuan, parent, false);
+        view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_pengajuan, parent, false);
 
         return new PengajuanViewHolder(view);
     }
@@ -48,6 +49,8 @@ public class PengajuanAdapter extends RecyclerView.Adapter<PengajuanViewHolder> 
                 view.getContext().startActivity(intent);
             }
         });
+
+       Glide.with(view.getContext()).load(data.getUrl_gambar()).into(holder.ivPengajuanGambar);
     }
 
     @Override

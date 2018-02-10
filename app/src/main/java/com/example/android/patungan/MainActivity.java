@@ -1,5 +1,6 @@
 package com.example.android.patungan;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.android.patungan.DBHandler.SQLiteHandler;
 import com.example.android.patungan.fragment.HomeFragment;
 import com.example.android.patungan.fragment.PengajuanProyekFragment;
 import com.example.android.patungan.fragment.ProfileFragment;
@@ -20,14 +22,13 @@ import com.example.android.patungan.fragment.ProyekSayaFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+        SQLiteHandler db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -78,11 +79,14 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-
+        db = new SQLiteHandler(this);
         Fragment fragment = null;
         Class fragmentClass = null;
 
-
+        if(!db.cek_user()){
+            Intent intent  = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+        }
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
@@ -95,7 +99,10 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_profile) {
             fragmentClass = ProfileFragment.class;
         } else if (id == R.id.nav_logout) {
-
+            db.deleteUsers();
+           Intent intent  = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
         }
 
         try {

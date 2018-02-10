@@ -37,6 +37,7 @@ public class PengajuanViewHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.tv_pengajuan_detail)
     public TextView tvPengajuanDetail;
 
+
     public PengajuanViewHolder(View itemView) {
         super(itemView);
         ButterKnife.bind(this, itemView);

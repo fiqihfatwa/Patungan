@@ -12,21 +12,25 @@ public class Proyek {
     private String periode;
     private String statusPembayaran;
     private int status;
-
-    public Proyek(String mJudul, String mOleh, String mInsertDate, String mProfit, String mPeriode) {
+    private String url_gambar;
+    public Proyek(String mJudul, String mOleh, String mInsertDate, String mProfit, String mPeriode, String gambar) {
         judul = mJudul;
         oleh = mOleh;
         insertDate = mInsertDate;
         profit = mProfit;
         periode = mPeriode;
+        url_gambar = gambar;
     }
 
     public Proyek(String mJudul, String mDate, String mStatus) {
         judul = mJudul;
         insertDate = mDate;
         statusPembayaran = mStatus;
-
     }
+
+    public String getUrl_gambar(){ return url_gambar;};
+
+    void setUrl_gambar(String gambar){url_gambar = gambar;};
 
     public String getJudul() {
         return judul;

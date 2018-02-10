@@ -2,9 +2,12 @@ package com.example.android.patungan.DBHandler;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
+import java.util.HashMap;
 
 /**
  * Created by isadadi on 2/10/2018.
@@ -50,5 +53,46 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         db.close(); // Closing database connection
 
         Log.d("SQLite", "New user inserted into sqlite: " + id);
+    }
+
+    public boolean cek_user(){
+        String query = "SELECT * FROM "+ Table;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        cursor.moveToFirst();
+        if(cursor.getCount()>0)
+            return true;
+        else
+            return false;
+    }
+
+    public void deleteUsers() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        // Delete All Rows
+        db.delete(Table, null, null);
+        db.close();
+
+        Log.d("Delete User", "Deleted all user info from sqlite");
+    }
+
+
+    public HashMap<String, String> getUserDetails() {
+        HashMap<String, String> user = new HashMap<String, String>();
+        String selectQuery = "SELECT  * FROM " + Table;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        // Move to first row
+        cursor.moveToFirst();
+        if (cursor.getCount() > 0) {
+            user.put("email", cursor.getString(0));
+            user.put("nama", cursor.getString(1));
+        }
+        cursor.close();
+        db.close();
+        // return user
+        Log.d("DB user detail", "Fetching user from Sqlite: " + user.toString());
+
+        return user;
     }
 }

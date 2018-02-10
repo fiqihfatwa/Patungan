@@ -41,8 +41,8 @@ public class HomeFragment extends Fragment {
         ButterKnife.bind(this, view);
 
         proyekList = new ArrayList<>();
-        proyekList.add(new Proyek("Reseller Kayu Manis", "Fiqih Fatwa", "09-02-2018", "10%", "5 bulan"));
-        proyekList.add(new Proyek("Reseller Biji Kopi", "M. Sakta Akbari", "09-02-2018", "10%", "5 bulan"));
+        proyekList.add(new Proyek("Reseller Kayu Manis", "Fiqih Fatwa", "09-02-2018", "10%", "5 bulan",""));
+        proyekList.add(new Proyek("Reseller Biji Kopi", "M. Sakta Akbari", "09-02-2018", "10%", "5 bulan",""));
         adapter = new MainAdapter(proyekList);
 
         rvMain.setAdapter(adapter);

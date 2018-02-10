@@ -2,7 +2,9 @@ package com.example.android.patungan;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +15,8 @@ import android.widget.Toast;
 import com.example.android.patungan.DBHandler.SQLiteHandler;
 import com.example.android.patungan.response.LoginResponse;
 import com.example.android.patungan.service.LoginService;
+
+import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -39,15 +43,24 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
+        db = new SQLiteHandler(this);
+        if(db.cek_user()){
+            HashMap<String,String> user = db.getUserDetails();
+            Log.d("database","ada usernya "+user.get("email"));
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Mohon menunggu");
         progressDialog.setCancelable(false);
         progressDialog.setCanceledOnTouchOutside(false);
 
-        db = new SQLiteHandler(this);
+
 
 
     }
+
 
     @OnClick(R.id.b_login)
     void cek_login(){
@@ -89,6 +102,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
+                    finish();
                 }else{
                     Toast.makeText(LoginActivity.this, "Username atau Password Salah", Toast.LENGTH_SHORT).show();
                 }
