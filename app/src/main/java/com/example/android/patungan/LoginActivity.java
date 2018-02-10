@@ -36,6 +36,9 @@ public class LoginActivity extends AppCompatActivity {
     @BindView(R.id.et_password)
     TextView tvPassword;
 
+
+
+
     ProgressDialog progressDialog;
     SQLiteHandler db;
     @Override
@@ -61,6 +64,11 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    @OnClick(R.id.tv_register)
+    void ke_register(){
+        Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+        startActivity(intent);
+    }
 
     @OnClick(R.id.b_login)
     void cek_login(){

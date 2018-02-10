@@ -28,6 +28,7 @@
             <android.support.design.widget.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/teEmail"
                 android:hint="Email" />
 
         </android.support.design.widget.TextInputLayout>
@@ -43,6 +44,7 @@
             <android.support.design.widget.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/teName"
                 android:hint="Name" />
         </android.support.design.widget.TextInputLayout>
 
@@ -57,6 +59,7 @@
             <android.support.design.widget.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/teHP"
                 android:hint="Phone Number" />
         </android.support.design.widget.TextInputLayout>
 
@@ -71,6 +74,7 @@
             <android.support.design.widget.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/tePassword"
                 android:hint="Password" />
         </android.support.design.widget.TextInputLayout>
 
@@ -85,6 +89,7 @@
             <android.support.design.widget.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/tePassword2"
                 android:hint="Repeat Password" />
         </android.support.design.widget.TextInputLayout>
 
@@ -93,6 +98,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="25dp"
+            android:id="@+id/btnSubmitResigter"
             android:text="register" />
 
         <TextView
