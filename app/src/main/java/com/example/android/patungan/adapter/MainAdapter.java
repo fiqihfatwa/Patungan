@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
 import com.example.android.patungan.DetailActivity;
 import com.example.android.patungan.R;
 import com.example.android.patungan.model.Proyek;
@@ -21,6 +22,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainViewHolder> {
 
     private List<Proyek> listMain;
 
+    private View view;
+
     public MainAdapter(List<Proyek> mListMain) {
         listMain = mListMain;
     }
@@ -28,14 +31,14 @@ public class MainAdapter extends RecyclerView.Adapter<MainViewHolder> {
 
     @Override
     public MainViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_main, parent, false);
+        view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_main, parent, false);
 
         return new MainViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(MainViewHolder holder, int position) {
-        Proyek data = listMain.get(position);
+        final Proyek data = listMain.get(position);
 
         holder.tvMainJudul.setText(data.getJudul());
         holder.tvMainOleh.setText(data.getOleh());
@@ -46,9 +49,16 @@ public class MainAdapter extends RecyclerView.Adapter<MainViewHolder> {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), DetailActivity.class);
+                intent.putExtra("URL_GAMBAR", data.getUrl_gambar());
+                intent.putExtra("JUDUL", data.getJudul());
+                intent.putExtra("OLEH", data.getOleh());
+                intent.putExtra("DESKRIPSI", data.getDeskripsi());
+
                 view.getContext().startActivity(intent);
             }
         });
+
+        Glide.with(view.getContext()).load(data.getUrl_gambar()).into(holder.ivMainGambar);
     }
 
     @Override

@@ -93,7 +93,7 @@ public class PengajuanProyekFragment extends Fragment {
 
                 proyekList.clear();
                 for (PengajuanResponse pengajuan : hasil) {
-                    proyekList.add(new Proyek(pengajuan.getProyekNama(), pengajuan.getProyekStatus(), pengajuan.getProyekInsertDate(), pengajuan.getProyekEstimasiKeuntungan(), pengajuan.getProyekJangkaWaktu(),pengajuan.getProyekGambar()));
+                    proyekList.add(new Proyek(pengajuan.getProyekNama(), pengajuan.getProyekStatus(), pengajuan.getProyekInsertDate(), pengajuan.getProyekEstimasiKeuntungan(), pengajuan.getProyekJangkaWaktu(), pengajuan.getProyekGambar(), pengajuan.getProyekDeskripsi(), pengajuan.getProyekId()));
                 }
 
                 adapter.notifyDataSetChanged();

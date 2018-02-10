@@ -22,7 +22,8 @@
                 android:id="@+id/iv_main_gambar"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
-                android:background="@color/colorPrimary" />
+                android:background="@color/colorPrimary"
+                android:scaleType="centerCrop" />
 
             <TextView
                 android:id="@+id/tv_main_judul"

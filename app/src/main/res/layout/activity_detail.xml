@@ -18,9 +18,11 @@
             android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/ivGambarDetail"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:background="@color/colorPrimaryDark" />
+                android:background="@color/colorPrimaryDark"
+                android:scaleType="centerCrop" />
 
             <TextView
                 android:id="@+id/tv_detail_judul"
@@ -177,8 +179,7 @@
                 android:layout_height="wrap_content"
                 android:paddingBottom="14dp"
                 android:paddingLeft="14dp"
-                android:paddingRight="14dp"
-                android:text="hahahaha hahahaha hahahah hahahah hahahah hahaha hahaha hahaha hahaha hahaha hahaha hahah hahaha hahaha hahah hahah hahah hahah" />
+                android:paddingRight="14dp" />
 
             <View
                 android:layout_width="match_parent"
@@ -218,8 +219,7 @@
                 android:layout_height="wrap_content"
                 android:paddingBottom="14dp"
                 android:paddingLeft="14dp"
-                android:paddingRight="14dp"
-                android:text="hahahaha hahahaha hahahah hahahah hahahah hahaha hahaha hahaha hahaha hahaha hahaha hahah hahaha hahaha hahah hahah hahah hahah" />
+                android:paddingRight="14dp" />
 
             <View
                 android:layout_width="match_parent"

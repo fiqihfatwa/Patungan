@@ -13,19 +13,41 @@ public class Proyek {
     private String statusPembayaran;
     private int status;
     private String url_gambar;
-    public Proyek(String mJudul, String mOleh, String mInsertDate, String mProfit, String mPeriode, String gambar) {
+    private String deskripsi;
+    private String id_proyek;
+
+    public Proyek(String mJudul, String mOleh, String mInsertDate, String mProfit, String mPeriode, String gambar, String mDeskripsi, String mIdPproyek) {
         judul = mJudul;
         oleh = mOleh;
         insertDate = mInsertDate;
         profit = mProfit;
         periode = mPeriode;
         url_gambar = gambar;
+        deskripsi = mDeskripsi;
+        id_proyek = mIdPproyek;
+
     }
 
     public Proyek(String mJudul, String mDate, String mStatus) {
         judul = mJudul;
         insertDate = mDate;
         statusPembayaran = mStatus;
+    }
+
+    public String getDeskripsi() {
+        return deskripsi;
+    }
+
+    public void setDeskripsi(String deskripsi) {
+        this.deskripsi = deskripsi;
+    }
+
+    public String getId_proyek() {
+        return id_proyek;
+    }
+
+    public void setId_proyek(String id_proyek) {
+        this.id_proyek = id_proyek;
     }
 
     public String getUrl_gambar(){ return url_gambar;};

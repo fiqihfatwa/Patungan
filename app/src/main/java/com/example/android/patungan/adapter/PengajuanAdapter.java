@@ -21,11 +21,11 @@ import java.util.List;
 public class PengajuanAdapter extends RecyclerView.Adapter<PengajuanViewHolder> {
 
     private List<Proyek> listPengajuan;
-
+    private View view;
     public PengajuanAdapter(List<Proyek> mListPengajuan) {
         listPengajuan = mListPengajuan;
     }
-    private View view;
+
     @Override
     public PengajuanViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_pengajuan, parent, false);
@@ -35,7 +35,7 @@ public class PengajuanAdapter extends RecyclerView.Adapter<PengajuanViewHolder> 
 
     @Override
     public void onBindViewHolder(PengajuanViewHolder holder, int position) {
-        Proyek data = listPengajuan.get(position);
+        final Proyek data = listPengajuan.get(position);
 
         holder.tvPengajuanJudul.setText(data.getJudul());
         holder.tvPengajuanStatus.setText(data.getOleh());
@@ -46,6 +46,10 @@ public class PengajuanAdapter extends RecyclerView.Adapter<PengajuanViewHolder> 
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), DetailPengajuanActivity.class);
+                intent.putExtra("URL_GAMBAR", data.getUrl_gambar());
+                intent.putExtra("JUDUL", data.getJudul());
+                intent.putExtra("OLEH", data.getOleh());
+                intent.putExtra("DESKRIPSI", data.getDeskripsi());
                 view.getContext().startActivity(intent);
             }
         });
