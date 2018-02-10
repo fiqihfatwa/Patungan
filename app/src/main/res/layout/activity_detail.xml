@@ -23,6 +23,7 @@
                 android:background="@color/colorPrimaryDark" />
 
             <TextView
+                android:id="@+id/tv_detail_judul"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="14dp"
@@ -30,6 +31,7 @@
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Title" />
 
             <TextView
+                android:id="@+id/tv_detail_harga_slot"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="3dp"
@@ -49,6 +51,7 @@
                     app:srcCompat="@drawable/ic_location_on_black_24dp" />
 
                 <TextView
+                    android:id="@+id/tv_detail_lokasi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="4dp"
@@ -68,6 +71,7 @@
                     android:text="oleh " />
 
                 <TextView
+                    android:id="@+id/tv_detail_oleh"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Fiqih Fatwa"
@@ -99,6 +103,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/tv_detail_sisa_slot"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="10"
@@ -121,6 +126,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/tv_detail_estimasi_profit"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="10 - 13 %"
@@ -143,6 +149,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/tv_detail_periode"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="5 bulan"
@@ -165,6 +172,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tv_detail_deskripsi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="14dp"
@@ -185,12 +193,12 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tv_detail_kdk"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="14dp"
                 android:paddingLeft="14dp"
-                android:paddingRight="14dp"
-                android:text="hahahaha hahahaha hahahah hahahah hahahah hahaha hahaha hahaha hahaha hahaha hahaha hahah hahaha hahaha hahah hahah hahah hahah" />
+                android:paddingRight="14dp" />
 
             <View
                 android:layout_width="match_parent"
@@ -205,6 +213,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tv_detail_simulasi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="14dp"
@@ -240,6 +249,7 @@
                     app:srcCompat="@drawable/ic_call_black_24dp" />
 
                 <TextView
+                    android:id="@+id/tv_detail_telepon"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="4dp"
@@ -262,6 +272,7 @@
                     app:srcCompat="@drawable/ic_email_black_24dp" />
 
                 <TextView
+                    android:id="@+id/tv_detail_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="4dp"
@@ -300,6 +311,7 @@
                 android:textStyle="bold" />
 
             <Button
+                android:id="@+id/b_tambah"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="@color/colorPrimary"
@@ -307,7 +319,7 @@
                 android:textColor="@color/white" />
 
             <TextView
-                android:id="@+id/quantity_text_view"
+                android:id="@+id/tv_jumlah_slot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="40dp"
@@ -317,6 +329,7 @@
                 android:textSize="16sp" />
 
             <Button
+                android:id="@+id/b_kurang"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="@color/colorPrimary"
@@ -326,6 +339,7 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/b_bayar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="6dp"

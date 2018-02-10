@@ -12,12 +12,19 @@ import android.view.ViewGroup;
 import com.example.android.patungan.R;
 import com.example.android.patungan.adapter.ProyekSayaAdapter;
 import com.example.android.patungan.model.Proyek;
+import com.example.android.patungan.response.ProyekSayaResponse;
+import com.example.android.patungan.service.ProyekSayaService;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.jackson.JacksonConverterFactory;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -53,6 +60,34 @@ public class ProyekSayaFragment extends Fragment {
 
         // Inflate the layout for this fragment
         return view;
+    }
+
+    private void LoadData() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(ProyekSayaService.baseUrl)
+                .addConverterFactory(JacksonConverterFactory.create())
+                .build();
+
+        ProyekSayaService service = retrofit.create(ProyekSayaService.class);
+
+        service.proyeksayaList("fiqihfatwa@gmail.com").enqueue(new Callback<List<ProyekSayaResponse>>() {
+            @Override
+            public void onResponse(Call<List<ProyekSayaResponse>> call, Response<List<ProyekSayaResponse>> response) {
+                List<ProyekSayaResponse> hasil = response.body();
+
+                proyekList.clear();
+                for (ProyekSayaResponse proyeksaya : hasil) {
+                    proyekList.add(new Proyek(proyeksaya.getProyekNama(), proyeksaya.getSlotDate(), proyeksaya.getStatusPemabayran()));
+                }
+
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailure(Call<List<ProyekSayaResponse>> call, Throwable t) {
+
+            }
+        });
     }
 
 }
