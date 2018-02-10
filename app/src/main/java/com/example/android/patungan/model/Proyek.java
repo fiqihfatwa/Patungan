@@ -21,14 +21,6 @@ public class Proyek {
         periode = mPeriode;
     }
 
-    public Proyek(String mJudul, int mStatus, String mInsertDate, String mProfit, String mPeriode) {
-        judul = mJudul;
-        status = mStatus;
-        insertDate = mInsertDate;
-        profit = mProfit;
-        periode = mPeriode;
-    }
-
     public Proyek(String mJudul, String mDate, String mStatus) {
         judul = mJudul;
         insertDate = mDate;

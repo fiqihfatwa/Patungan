@@ -37,7 +37,7 @@ public class PengajuanAdapter extends RecyclerView.Adapter<PengajuanViewHolder> 
         Proyek data = listPengajuan.get(position);
 
         holder.tvPengajuanJudul.setText(data.getJudul());
-        holder.tvPengajuanStatus.setText(String.valueOf(data.getStatus()));
+        holder.tvPengajuanStatus.setText(data.getOleh());
         holder.tvPengajuanInsertDate.setText(data.getInsertDate());
         holder.tvPengajuanProfit.setText(data.getProfit());
         holder.tvPengajuanPeriode.setText(data.getPeriode());
